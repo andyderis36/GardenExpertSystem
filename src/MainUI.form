@@ -11,7 +11,7 @@
       <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
     </Property>
     <Property name="location" type="java.awt.Point" editor="org.netbeans.beaninfo.editors.PointEditor">
-      <Point value="[275, 200]"/>
+      <Point value="[450, 200]"/>
     </Property>
   </Properties>
   <SyntheticProperties>
@@ -71,7 +71,7 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="appLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="204" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -138,8 +138,8 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="symptomComboBox" max="32767" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="symptomComboBox" min="-2" pref="445" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="qnaButton" alignment="0" max="32767" attributes="0"/>
                       <Component id="aboutButton" alignment="0" max="32767" attributes="0"/>
@@ -159,13 +159,13 @@
                           <Component id="diagnoseButton" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Component id="qnaButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="aboutButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Component id="exitButton" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="symptomComboBox" max="32767" attributes="0"/>
+                      <Component id="symptomComboBox" min="-2" pref="58" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="aboutButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                  <Component id="exitButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -180,7 +180,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Diagnose&#xa;Plant"/>
+            <Property name="text" type="java.lang.String" value="Diagnose"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="diagnoseButtonActionPerformed"/>
@@ -213,14 +213,18 @@
         <Component class="javax.swing.JComboBox" name="symptomComboBox">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Helvetica Neue" size="24" style="0"/>
+              <Font name="Helvetica Neue" size="18" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Symptom 1"/>
-                <StringItem index="1" value="Symptom 2"/>
-                <StringItem index="2" value="Symptom 3"/>
-                <StringItem index="3" value="Symptom 4"/>
+              <StringArray count="8">
+                <StringItem index="0" value="Soil is wet AND leaves are yellow"/>
+                <StringItem index="1" value="Soil is dry AND leaves are wilting"/>
+                <StringItem index="2" value="Leaves have white powdery spots"/>
+                <StringItem index="3" value="Leaves have holes AND insects are present"/>
+                <StringItem index="4" value="Leaves are pale AND plant shows stunted growth"/>
+                <StringItem index="5" value="No clear symptoms detected"/>
+                <StringItem index="6" value="Soil is soggy AND roots are dark or mushy"/>
+                <StringItem index="7" value="Plant is leggy AND leaves are yellowing"/>
               </StringArray>
             </Property>
             <Property name="name" type="java.lang.String" value="" noResource="true"/>

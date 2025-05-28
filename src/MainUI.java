@@ -40,7 +40,7 @@ public class MainUI extends javax.swing.JFrame {
         setTitle("Garden Expert System");
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(java.awt.Color.white);
-        setLocation(new java.awt.Point(275, 200));
+        setLocation(new java.awt.Point(450, 200));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -67,7 +67,7 @@ public class MainUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(appLabel)
-                .addGap(204, 204, 204))
+                .addGap(104, 104, 104))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,7 +84,7 @@ public class MainUI extends javax.swing.JFrame {
 
         diagnoseButton.setBackground(new java.awt.Color(153, 255, 0));
         diagnoseButton.setForeground(new java.awt.Color(0, 0, 0));
-        diagnoseButton.setText("Diagnose\nPlant");
+        diagnoseButton.setText("Diagnose");
         diagnoseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 diagnoseButtonActionPerformed(evt);
@@ -112,17 +112,8 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
 
-        symptomComboBox.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
-        symptomComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { 
-            "Soil is wet AND leaves are yellow", 
-            "Soil is dry AND leaves are wilting", 
-            "Leaves have white powdery spots", 
-            "Leaves have holes AND insects are present", 
-            "Leaves are pale AND plant shows stunted growth", 
-            "No clear symptoms detected", 
-            "Soil is soggy AND roots are dark or mushy", 
-            "Plant is leggy AND leaves are yellowing" 
-}));
+        symptomComboBox.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        symptomComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Soil is wet AND leaves are yellow", "Soil is dry AND leaves are wilting", "Leaves have white powdery spots", "Leaves have holes AND insects are present", "Leaves are pale AND plant shows stunted growth", "No clear symptoms detected", "Soil is soggy AND roots are dark or mushy", "Plant is leggy AND leaves are yellowing" }));
         symptomComboBox.setName(""); // NOI18N
         symptomComboBox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -141,8 +132,8 @@ public class MainUI extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(symptomComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(symptomComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(qnaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(aboutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -158,12 +149,12 @@ public class MainUI extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(diagnoseButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(12, 12, 12)
-                        .addComponent(qnaButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(aboutButton)
-                        .addGap(12, 12, 12)
-                        .addComponent(exitButton))
-                    .addComponent(symptomComboBox))
+                        .addComponent(qnaButton))
+                    .addComponent(symptomComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(aboutButton)
+                .addGap(12, 12, 12)
+                .addComponent(exitButton)
                 .addContainerGap())
         );
 
@@ -242,7 +233,12 @@ public class MainUI extends javax.swing.JFrame {
     }//GEN-LAST:event_qnaButtonActionPerformed
 
     private void aboutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutButtonActionPerformed
-        // TODO add your handling code here:
+        // Menampilkan pesan tentang aplikasi
+        javax.swing.JOptionPane.showMessageDialog(this, 
+            "Garden Expert System helps diagnose common home garden problems based on symptoms.\n" +
+            "Created to promote healthy gardening practices and support plant lovers everywhere.", 
+            "About Garden Expert System", 
+            javax.swing.JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_aboutButtonActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
@@ -264,9 +260,6 @@ public class MainUI extends javax.swing.JFrame {
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -285,12 +278,26 @@ public class MainUI extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainUI().setVisible(true);
-            }
-        });
+        /* Show confirmation dialog */
+        int response = javax.swing.JOptionPane.showConfirmDialog(
+            null, 
+            "Welcome to the Garden Expert System!\nDo you want to start?", 
+            "Start Confirmation", 
+            javax.swing.JOptionPane.YES_NO_OPTION, 
+            javax.swing.JOptionPane.QUESTION_MESSAGE
+        );
+
+        if (response == javax.swing.JOptionPane.YES_OPTION) {
+            /* Create and display the form */
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    new MainUI().setVisible(true);
+                }
+            });
+        } else {
+            // Exit the program if the user selects "No"
+            System.exit(0);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

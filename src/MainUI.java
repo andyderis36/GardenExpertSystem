@@ -113,7 +113,16 @@ public class MainUI extends javax.swing.JFrame {
         });
 
         symptomComboBox.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
-        symptomComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Symptom 1", "Symptom 2", "Symptom 3", "Symptom 4" }));
+        symptomComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { 
+            "Soil is wet AND leaves are yellow", 
+            "Soil is dry AND leaves are wilting", 
+            "Leaves have white powdery spots", 
+            "Leaves have holes AND insects are present", 
+            "Leaves are pale AND plant shows stunted growth", 
+            "No clear symptoms detected", 
+            "Soil is soggy AND roots are dark or mushy", 
+            "Plant is leggy AND leaves are yellowing" 
+}));
         symptomComboBox.setName(""); // NOI18N
         symptomComboBox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -177,7 +186,55 @@ public class MainUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void diagnoseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diagnoseButtonActionPerformed
-        // TODO add your handling code here:
+        // Ambil gejala yang dipilih dari combo box
+        String selectedSymptom = (String) symptomComboBox.getSelectedItem();
+
+        // Variabel untuk diagnosis dan solusi
+        String diagnosis = "";
+        String solution = "";
+
+        // Logika diagnosis berdasarkan aturan
+        switch (selectedSymptom) {
+            case "Soil is wet AND leaves are yellow":
+                diagnosis = "Overwatering";
+                solution = "Reduce watering.";
+                break;
+            case "Soil is dry AND leaves are wilting":
+                diagnosis = "Underwatering";
+                solution = "Increase watering frequency.";
+                break;
+            case "Leaves have white powdery spots":
+                diagnosis = "Powdery Mildew";
+                solution = "Apply fungicide.";
+                break;
+            case "Leaves have holes AND insects are present":
+                diagnosis = "Insect Infestation";
+                solution = "Apply organic pesticide.";
+                break;
+            case "Leaves are pale AND plant shows stunted growth":
+                diagnosis = "Nitrogen Deficiency";
+                solution = "Apply nitrogen-rich fertilizer.";
+                break;
+            case "No clear symptoms detected":
+                diagnosis = "Unknown Issue";
+                solution = "Consult a gardening expert or re-observe the plant's condition.";
+                break;
+            case "Soil is soggy AND roots are dark or mushy":
+                diagnosis = "Root Rot";
+                solution = "Remove affected roots and reduce watering.";
+                break;
+            case "Plant is leggy AND leaves are yellowing":
+                diagnosis = "Lack of Sunlight";
+                solution = "Move the plant to a sunnier location.";
+                break;
+            default:
+                diagnosis = "Unknown Symptom";
+                solution = "Please select a valid symptom.";
+                break;
+        }
+
+        // Tampilkan diagnosis dan solusi di text area
+        diagnoseResultTextArea.setText("Diagnosis: " + diagnosis + "\nSolution: " + solution);
     }//GEN-LAST:event_diagnoseButtonActionPerformed
 
     private void qnaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qnaButtonActionPerformed
@@ -189,7 +246,8 @@ public class MainUI extends javax.swing.JFrame {
     }//GEN-LAST:event_aboutButtonActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
-        // TODO add your handling code here:
+        // Keluar dari aplikasi
+        System.exit(0);
     }//GEN-LAST:event_exitButtonActionPerformed
 
     private void symptomComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_symptomComboBoxActionPerformed

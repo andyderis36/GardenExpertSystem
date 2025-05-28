@@ -38,7 +38,7 @@ public class MainUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Garden Expert System");
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(0, 0, 0));
         setForeground(java.awt.Color.white);
         setLocation(new java.awt.Point(450, 200));
 
@@ -54,6 +54,7 @@ public class MainUI extends javax.swing.JFrame {
         diagnoseResultTextArea.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
         diagnoseResultTextArea.setRows(5);
         diagnoseResultTextArea.setText("Diagnose Result");
+        diagnoseResultTextArea.setBorder(null);
         jScrollPane1.setViewportView(diagnoseResultTextArea);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -79,8 +80,9 @@ public class MainUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         diagnoseButton.setBackground(new java.awt.Color(153, 255, 0));
         diagnoseButton.setForeground(new java.awt.Color(0, 0, 0));
@@ -91,6 +93,8 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
 
+        qnaButton.setBackground(new java.awt.Color(255, 255, 255));
+        qnaButton.setForeground(new java.awt.Color(0, 0, 0));
         qnaButton.setText("Q&A");
         qnaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +102,8 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
 
+        aboutButton.setBackground(new java.awt.Color(255, 255, 255));
+        aboutButton.setForeground(new java.awt.Color(0, 0, 0));
         aboutButton.setText("About");
         aboutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,6 +111,8 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
 
+        exitButton.setBackground(new java.awt.Color(255, 77, 0));
+        exitButton.setForeground(new java.awt.Color(0, 0, 0));
         exitButton.setText("Exit");
         exitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,8 +120,11 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
 
+        symptomComboBox.setBackground(new java.awt.Color(255, 255, 255));
         symptomComboBox.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        symptomComboBox.setForeground(new java.awt.Color(255, 255, 255));
         symptomComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Soil is wet AND leaves are yellow", "Soil is dry AND leaves are wilting", "Leaves have white powdery spots", "Leaves have holes AND insects are present", "Leaves are pale AND plant shows stunted growth", "No clear symptoms detected", "Soil is soggy AND roots are dark or mushy", "Plant is leggy AND leaves are yellowing" }));
+        symptomComboBox.setBorder(null);
         symptomComboBox.setName(""); // NOI18N
         symptomComboBox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -130,32 +141,32 @@ public class MainUI extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(symptomComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(qnaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(aboutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(exitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(diagnoseButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(symptomComboBox, 0, 535, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(diagnoseButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(qnaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(aboutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(diagnoseButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(12, 12, 12)
-                        .addComponent(qnaButton))
-                    .addComponent(symptomComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(aboutButton)
-                .addGap(12, 12, 12)
-                .addComponent(exitButton)
-                .addContainerGap())
+                .addComponent(symptomComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(diagnoseButton)
+                    .addComponent(qnaButton)
+                    .addComponent(aboutButton)
+                    .addComponent(exitButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -170,7 +181,7 @@ public class MainUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -278,13 +289,17 @@ public class MainUI extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Show confirmation dialog */
-        int response = javax.swing.JOptionPane.showConfirmDialog(
+        /* Show confirmation dialog with custom options */
+        Object[] options = {"START", "NO"};
+        int response = javax.swing.JOptionPane.showOptionDialog(
             null, 
             "Welcome to the Garden Expert System!\nDo you want to start?", 
             "Start Confirmation", 
             javax.swing.JOptionPane.YES_NO_OPTION, 
-            javax.swing.JOptionPane.QUESTION_MESSAGE
+            javax.swing.JOptionPane.QUESTION_MESSAGE, 
+            null, 
+            options, 
+            options[0]
         );
 
         if (response == javax.swing.JOptionPane.YES_OPTION) {
@@ -295,7 +310,7 @@ public class MainUI extends javax.swing.JFrame {
                 }
             });
         } else {
-            // Exit the program if the user selects "No"
+            // Exit the program if the user selects "NO"
             System.exit(0);
         }
     }

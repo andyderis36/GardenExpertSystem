@@ -96,7 +96,7 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
 
-        qnaButton.setBackground(new java.awt.Color(255, 255, 255));
+        qnaButton.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Yellow"));
         qnaButton.setForeground(new java.awt.Color(0, 0, 0));
         qnaButton.setText("Q&A");
         qnaButton.addActionListener(new java.awt.event.ActionListener() {

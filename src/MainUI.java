@@ -54,12 +54,12 @@ public class MainUI extends javax.swing.JFrame {
         appLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         diagnoseResultTextArea.setEditable(false);
-        diagnoseResultTextArea.setBackground(new java.awt.Color(255, 255, 255));
         diagnoseResultTextArea.setColumns(20);
         diagnoseResultTextArea.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
         diagnoseResultTextArea.setRows(5);
         diagnoseResultTextArea.setText("Diagnose Result");
-        diagnoseResultTextArea.setBorder(null);
+        diagnoseResultTextArea.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        diagnoseResultTextArea.setMargin(new java.awt.Insets(10, 10, 10, 10));
         jScrollPane1.setViewportView(diagnoseResultTextArea);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -69,8 +69,8 @@ public class MainUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 707, Short.MAX_VALUE)
-                    .addComponent(appLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(appLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 699, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -96,7 +96,7 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
 
-        qnaButton.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Yellow"));
+        qnaButton.setBackground(java.awt.Color.orange);
         qnaButton.setForeground(new java.awt.Color(0, 0, 0));
         qnaButton.setText("Q&A");
         qnaButton.addActionListener(new java.awt.event.ActionListener() {
@@ -147,7 +147,7 @@ public class MainUI extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(symptomComboBox, 0, 707, Short.MAX_VALUE)
+                    .addComponent(symptomComboBox, 0, 699, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(diagnoseButton)
                         .addGap(18, 18, 18)
@@ -259,7 +259,38 @@ public class MainUI extends javax.swing.JFrame {
     }//GEN-LAST:event_diagnoseButtonActionPerformed
 
     private void qnaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qnaButtonActionPerformed
-        // TODO add your handling code here:
+        // Tampilkan daftar Q&A di diagnoseResultTextArea
+        diagnoseResultTextArea.setText(
+            "Q1: What should I do if my plant leaves turn yellow?\n" +
+            "A1: Yellowing leaves can be caused by a variety of issues. Common reasons include overwatering, underwatering, nutrient deficiencies, or pest damage.\n" +
+            "First, check the soil moisture to determine if you are over or underwatering. If the soil is soggy, consider adjusting your watering schedule and ensuring the plant has proper drainage.\n" +
+            "If the soil is dry, increase the watering frequency. Also, make sure your plant is getting adequate sunlight, as yellow leaves can be a sign of insufficient light.\n\n" +
+
+            "Q2: How can I tell if my plant has root rot?\n" +
+            "A2: Root rot typically occurs when the plant's roots are exposed to excessive moisture over time, preventing them from getting the oxygen they need.\n" +
+            "If you notice dark, mushy roots when repotting your plant or a foul odor coming from the soil, this is a strong indication of root rot.\n" +
+            "To address root rot, remove the affected roots with clean scissors or pruning shears, then repot the plant in fresh, well-draining soil.\n" +
+            "Be sure to avoid overwatering in the future to prevent root rot from recurring.\n\n" +
+
+            "Q3: My plant has tiny spots on its leaves. What should I do?\n" +
+            "A3: Tiny spots on leaves could be a sign of various issues, including fungal infections, pest damage, or nutrient imbalances.\n" +
+            "First, check for signs of pests such as aphids or spider mites. If insects are present, treat the plant with an organic insecticide or neem oil.\n" +
+            "If the spots are caused by fungal infections like powdery mildew, you can treat the plant with a fungicide or remove the affected leaves to prevent the spread of the disease.\n" +
+            "Make sure your plant has adequate airflow and avoid excessive humidity, as these conditions promote fungal growth.\n\n" +
+
+            "Q4: How can I tell if my plant is getting enough sunlight?\n" +
+            "A4: Plants need adequate light to perform photosynthesis, which is essential for their growth.\n" +
+            "If your plant has leggy growth (long, thin stems with spaced-out leaves), it is likely not receiving enough light.\n" +
+            "You can move the plant to a brighter location or use grow lights to supplement natural light.\n" +
+            "Different plants have different light requirements, so make sure you research the ideal conditions for your specific plant species.\n" +
+            "Generally, plants need 6-8 hours of sunlight per day. If you notice that the leaves are turning yellow or the plant is growing toward the light, it is a sign that it is seeking more light.\n\n" +
+
+            "Q5: How often should I water my plants?\n" +
+            "A5: The frequency of watering depends on the type of plant, the environment, and the time of year.\n" +
+            "As a general rule, allow the soil to dry out between waterings. If the soil is dry to the touch, it's time to water.\n" +
+            "Some plants prefer to be watered more frequently, while others need less. Be sure to check the moisture level in the soil regularly, and adjust your watering schedule based on the plant’s needs.\n" +
+            "Overwatering is just as harmful as underwatering, so always ensure the plant’s pot has good drainage to avoid waterlogged soil.\n"
+        );
     }//GEN-LAST:event_qnaButtonActionPerformed
 
     private void aboutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutButtonActionPerformed

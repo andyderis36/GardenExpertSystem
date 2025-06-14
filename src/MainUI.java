@@ -42,16 +42,19 @@ public class MainUI extends javax.swing.JFrame {
         setTitle("Garden Expert System");
         setBackground(new java.awt.Color(0, 0, 0));
         setForeground(java.awt.Color.white);
-        setLocation(new java.awt.Point(450, 200));
+        setLocation(new java.awt.Point(360, 125));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(153, 255, 0));
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         appLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         appLabel.setForeground(new java.awt.Color(0, 0, 0));
+        appLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         appLabel.setText("Home Garden Expert System");
+        appLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         diagnoseResultTextArea.setEditable(false);
+        diagnoseResultTextArea.setBackground(new java.awt.Color(255, 255, 255));
         diagnoseResultTextArea.setColumns(20);
         diagnoseResultTextArea.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
         diagnoseResultTextArea.setRows(5);
@@ -65,12 +68,10 @@ public class MainUI extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 707, Short.MAX_VALUE)
+                    .addComponent(appLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(appLabel)
-                .addGap(104, 104, 104))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,11 +79,11 @@ public class MainUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(appLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(javax.swing.UIManager.getDefaults().getColor("ComboBox.buttonPressedArrowColor"));
         jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -126,7 +127,7 @@ public class MainUI extends javax.swing.JFrame {
         symptomComboBox.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         symptomComboBox.setForeground(new java.awt.Color(255, 255, 255));
         symptomComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Soil is wet AND leaves are yellow", "Soil is dry AND leaves are wilting", "Leaves have white powdery spots", "Leaves have holes AND insects are present", "Leaves are pale AND plant shows stunted growth", "No clear symptoms detected", "Soil is soggy AND roots are dark or mushy", "Plant is leggy AND leaves are yellowing" }));
-        symptomComboBox.setBorder(null);
+        symptomComboBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         symptomComboBox.setName(""); // NOI18N
         symptomComboBox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -146,7 +147,7 @@ public class MainUI extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(symptomComboBox, 0, 535, Short.MAX_VALUE)
+                    .addComponent(symptomComboBox, 0, 707, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(diagnoseButton)
                         .addGap(18, 18, 18)
@@ -161,14 +162,14 @@ public class MainUI extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(symptomComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(symptomComboBox, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(diagnoseButton)
                     .addComponent(qnaButton)
                     .addComponent(aboutButton)
                     .addComponent(exitButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -181,7 +182,7 @@ public class MainUI extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );

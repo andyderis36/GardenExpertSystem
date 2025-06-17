@@ -38,11 +38,12 @@ public class MainUI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         diagnoseResultTextArea = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
+        symptomComboBox = new javax.swing.JComboBox<>();
         diagnoseButton = new javax.swing.JButton();
         qnaButton = new javax.swing.JButton();
+        howButton = new javax.swing.JButton();
         aboutButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
-        symptomComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Garden Expert System");
@@ -76,19 +77,25 @@ public class MainUI extends javax.swing.JFrame {
         );
         imagePanelLayout.setVerticalGroup(
             imagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 401, Short.MAX_VALUE)
+            .addGap(0, 372, Short.MAX_VALUE)
             .addGroup(imagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(imageLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE))
+                .addComponent(imageLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE))
         );
 
-        diagnoseResultTextArea.setEditable(false);
+        // Initialize diagnoseResultTextArea
+        diagnoseResultTextArea = new javax.swing.JTextArea();
         diagnoseResultTextArea.setColumns(20);
-        diagnoseResultTextArea.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
-        diagnoseResultTextArea.setRows(5);
-        diagnoseResultTextArea.setText("Diagnose Result");
-        diagnoseResultTextArea.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        diagnoseResultTextArea.setMargin(new java.awt.Insets(10, 10, 10, 10));
-        jScrollPane1.setViewportView(diagnoseResultTextArea);
+        diagnoseResultTextArea.setRows(10);
+        diagnoseResultTextArea.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // Set font size
+        diagnoseResultTextArea.setEditable(false);
+        diagnoseResultTextArea.setLineWrap(true); // Enable line wrapping
+        diagnoseResultTextArea.setWrapStyleWord(true); // Enable word wrapping
+
+        // Add diagnoseResultTextArea to JScrollPane
+        jScrollPane1 = new javax.swing.JScrollPane(diagnoseResultTextArea);
+
+        // Add JScrollPane to layout
+        jPanel1.add(jScrollPane1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -109,14 +116,31 @@ public class MainUI extends javax.swing.JFrame {
                 .addComponent(appLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(imagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(javax.swing.UIManager.getDefaults().getColor("ComboBox.buttonPressedArrowColor"));
         jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
+
+        symptomComboBox.setBackground(new java.awt.Color(255, 255, 255));
+        symptomComboBox.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        symptomComboBox.setForeground(new java.awt.Color(255, 255, 255));
+        symptomComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Select Symptom---", "Soil is wet AND leaves are yellow", "Soil is dry AND leaves are wilting", "Leaves have white powdery spots", "Leaves have holes AND insects are present", "Leaves are pale AND plant shows stunted growth", "No clear symptoms detected", "Soil is soggy AND roots are dark or mushy", "Plant is leggy AND leaves are yellowing" }));
+        symptomComboBox.setToolTipText("");
+        symptomComboBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        symptomComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                symptomComboBoxItemStateChanged(evt);
+            }
+        });
+        symptomComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                symptomComboBoxActionPerformed(evt);
+            }
+        });
 
         diagnoseButton.setBackground(new java.awt.Color(153, 255, 0));
         diagnoseButton.setForeground(new java.awt.Color(0, 0, 0));
@@ -133,6 +157,15 @@ public class MainUI extends javax.swing.JFrame {
         qnaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 qnaButtonActionPerformed(evt);
+            }
+        });
+
+        howButton.setBackground(new java.awt.Color(255, 255, 255));
+        howButton.setForeground(new java.awt.Color(0, 0, 0));
+        howButton.setText("How");
+        howButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                howButtonActionPerformed(evt);
             }
         });
 
@@ -154,23 +187,6 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
 
-        symptomComboBox.setBackground(new java.awt.Color(255, 255, 255));
-        symptomComboBox.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        symptomComboBox.setForeground(new java.awt.Color(255, 255, 255));
-        symptomComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Select Symptom---", "Soil is wet AND leaves are yellow", "Soil is dry AND leaves are wilting", "Leaves have white powdery spots", "Leaves have holes AND insects are present", "Leaves are pale AND plant shows stunted growth", "No clear symptoms detected", "Soil is soggy AND roots are dark or mushy", "Plant is leggy AND leaves are yellowing" }));
-        symptomComboBox.setToolTipText("");
-        symptomComboBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        symptomComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                symptomComboBoxItemStateChanged(evt);
-            }
-        });
-        symptomComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                symptomComboBoxActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -184,6 +200,8 @@ public class MainUI extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(qnaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
+                        .addComponent(howButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(aboutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -193,13 +211,14 @@ public class MainUI extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(symptomComboBox, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+                .addComponent(symptomComboBox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(diagnoseButton)
                     .addComponent(qnaButton)
                     .addComponent(aboutButton)
-                    .addComponent(exitButton))
+                    .addComponent(exitButton)
+                    .addComponent(howButton))
                 .addContainerGap())
         );
 
@@ -207,95 +226,111 @@ public class MainUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void diagnoseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diagnoseButtonActionPerformed
-        // Ambil gejala yang dipilih dari combo box
-        String selectedSymptom = (String) symptomComboBox.getSelectedItem();
+        // Display loading message
+        diagnoseResultTextArea.setText("Loading...");
+        imageLabel.setText("Loading...");
+        imageLabel.setIcon(null);
 
-        // Variabel untuk diagnosis, solusi, dan nama file gambar
-        String diagnosis = "";
-        String solution = "";
-        String imagePath = "";
+        // Use SwingWorker to run the diagnosis process in a separate thread
+        new javax.swing.SwingWorker<Void, Void>() {
+            private String diagnosis = "";
+            private String solution = "";
+            private String imagePath = "";
 
-        // Logika diagnosis berdasarkan gejala yang dipilih
-        switch (selectedSymptom) {
-            case "Soil is wet AND leaves are yellow":
-                diagnosis = "Overwatering";
-                solution = "Reduce watering.";
-                imagePath = "/images/overwatering.png";
-                break;
-            case "Soil is dry AND leaves are wilting":
-                diagnosis = "Underwatering";
-                solution = "Increase watering frequency.";
-                imagePath = "/images/underwatering.png";
-                break;
-            case "Leaves have white powdery spots":
-                diagnosis = "Powdery Mildew";
-                solution = "Apply fungicide.";
-                imagePath = "/images/powdery_mildew.png";
-                break;
-            case "Leaves have holes AND insects are present":
-                diagnosis = "Insect Infestation";
-                solution = "Apply organic pesticide.";
-                imagePath = "/images/insect_infestation.png";
-                break;
-            case "Leaves are pale AND plant shows stunted growth":
-                diagnosis = "Nitrogen Deficiency";
-                solution = "Apply nitrogen-rich fertilizer.";
-                imagePath = "/images/nitrogen_deficiency.png";
-                break;
-            case "Soil is soggy AND roots are dark or mushy":
-                diagnosis = "Root Rot";
-                solution = "Remove affected roots and reduce watering.";
-                imagePath = "/images/root_rot.png";
-                break;
-            case "Plant is leggy AND leaves are yellowing":
-                diagnosis = "Lack of Sunlight";
-                solution = "Move the plant to a sunnier location.";
-                imagePath = "/images/lack_of_sunlight.png";
-                break;
-            default:
-                diagnosis = "Unknown Symptom";
-                solution = "Please select a valid symptom.";
-                imagePath = "/images/default.png"; // Gambar default jika gejala tidak dikenali
-                break;
-        }
+            @Override
+            protected Void doInBackground() throws Exception {
+                // Add a 2-second delay to simulate loading animation
+                Thread.sleep(2000);
 
-        // Tampilkan diagnosis dan solusi di text area
-        diagnoseResultTextArea.setText("Diagnosis: " + diagnosis + "\nSolution: " + solution);
+                // Get the selected symptom from the combo box
+                String selectedSymptom = (String) symptomComboBox.getSelectedItem();
 
-        // Tampilkan gambar di imageLabel dengan ukuran yang sesuai
-        try {
-            URL imageUrl = getClass().getResource(imagePath);
-            System.out.println("Image path: " + imagePath);
-            System.out.println("Resource URL: " + imageUrl);
-
-            if (imageUrl != null) {
-                ImageIcon originalIcon = new ImageIcon(imageUrl);
-                Image scaledImage = originalIcon.getImage().getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
-                ImageIcon scaledIcon = new ImageIcon(scaledImage);
-                imageLabel.setIcon(scaledIcon);
-            } else {
-                imageLabel.setText("Image not found");
+                // Diagnosis logic based on the selected symptom
+                switch (selectedSymptom) {
+                    case "Soil is wet AND leaves are yellow":
+                        diagnosis = "Overwatering";
+                        solution = "Reduce watering.";
+                        imagePath = "/images/overwatering.png";
+                        break;
+                    case "Soil is dry AND leaves are wilting":
+                        diagnosis = "Underwatering";
+                        solution = "Increase watering frequency.";
+                        imagePath = "/images/underwatering.png";
+                        break;
+                    case "Leaves have white powdery spots":
+                        diagnosis = "Powdery Mildew";
+                        solution = "Apply fungicide.";
+                        imagePath = "/images/powdery_mildew.png";
+                        break;
+                    case "Leaves have holes AND insects are present":
+                        diagnosis = "Insect Infestation";
+                        solution = "Apply organic pesticide.";
+                        imagePath = "/images/insect_infestation.png";
+                        break;
+                    case "Leaves are pale AND plant shows stunted growth":
+                        diagnosis = "Nitrogen Deficiency";
+                        solution = "Apply nitrogen-rich fertilizer.";
+                        imagePath = "/images/nitrogen_deficiency.png";
+                        break;
+                    case "Soil is soggy AND roots are dark or mushy":
+                        diagnosis = "Root Rot";
+                        solution = "Remove affected roots and reduce watering.";
+                        imagePath = "/images/root_rot.png";
+                        break;
+                    case "Plant is leggy AND leaves are yellowing":
+                        diagnosis = "Lack of Sunlight";
+                        solution = "Move the plant to a sunnier location.";
+                        imagePath = "/images/lack_of_sunlight.png";
+                        break;
+                    default:
+                        diagnosis = "Unknown Symptom";
+                        solution = "Please select a valid symptom.";
+                        imagePath = "/images/default.png"; // Default image if the symptom is not recognized
+                        break;
+                }
+                return null;
             }
-        } catch (Exception e) {
-            imageLabel.setText("Error loading image");
-            e.printStackTrace();
-        }
+
+            @Override
+            protected void done() {
+                // Display the diagnosis and solution in the text area
+                diagnoseResultTextArea.setText("Diagnosis: " + diagnosis + "\nSolution: " + solution);
+
+                // Display the image in imageLabel with the appropriate size
+                try {
+                    URL imageUrl = getClass().getResource(imagePath);
+                    if (imageUrl != null) {
+                        ImageIcon originalIcon = new ImageIcon(imageUrl);
+                        Image scaledImage = originalIcon.getImage().getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
+                        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+                        imageLabel.setIcon(scaledIcon);
+                        imageLabel.setText(""); // Remove "Loading..." text
+                    } else {
+                        imageLabel.setText("Image not found");
+                    }
+                } catch (Exception e) {
+                    imageLabel.setText("Error loading image");
+                    e.printStackTrace();
+                }
+            }
+        }.execute();
     }//GEN-LAST:event_diagnoseButtonActionPerformed
 
     private void qnaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qnaButtonActionPerformed
@@ -355,6 +390,35 @@ public class MainUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_symptomComboBoxItemStateChanged
 
+    private void howButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_howButtonActionPerformed
+        // Display gardening tips in diagnoseResultTextArea
+        diagnoseResultTextArea.setText(
+            "Tip 1: Watering\n" +
+            "Proper watering is essential for plant health. Ensure that the water reaches the root system and allow the soil to dry out between waterings. Different plants have different water requirements, so make sure to research the specific needs of each species. As a rule of thumb, check the top 1-2 inches of soil; if it's dry, it's time to water.\n\n" +
+
+            "Tip 2: Light Requirements\n" +
+            "Every plant has its preferred amount of sunlight. Some plants thrive in full sun, while others prefer low light conditions. Observe your plant's growth habits: if it is leaning towards the light or becoming leggy, it may need more light. Conversely, if the leaves are scorched or the plant seems stressed, it may be getting too much light. Adjust the plant's placement accordingly.\n\n" +
+
+            "Tip 3: Fertilization\n" +
+            "Fertilizing your plant provides essential nutrients that help it grow strong and healthy. Use a balanced fertilizer that contains nitrogen, phosphorus, and potassium. During the growing season (typically spring and summer), fertilize once a month. During the dormant season (fall and winter), reduce fertilization frequency as most plants slow down their growth.\n\n" +
+
+            "Tip 4: Pruning\n" +
+            "Pruning is an important part of plant care that helps to promote healthy growth. Remove dead or yellowing leaves, and trim back overgrown stems to encourage bushier growth. For flowering plants, deadhead the spent flowers to encourage new blooms. Pruning also helps improve air circulation, preventing diseases from spreading.\n\n" +
+
+            "Tip 5: Repotting\n" +
+            "Repotting is necessary when a plant has outgrown its pot or when the soil has become compacted. Choose a pot that is 1-2 inches larger than the current pot. Repotting is typically done in spring, just before the growing season begins. When repotting, refresh the soil to provide fresh nutrients and improve drainage. Be sure to handle the roots gently and avoid over-stressing the plant.\n\n" +
+
+            "Tip 6: Pest Control\n" +
+            "Inspect your plants regularly for signs of pests such as aphids, spider mites, or scale insects. If you find pests, remove them with a soft cloth or cotton swab dipped in rubbing alcohol. For larger infestations, you can treat the plant with an organic pesticide or neem oil. Ensure that you thoroughly check both the upper and lower sides of the leaves and the soil for any pests.\n\n" +
+
+            "Tip 7: Temperature and Humidity\n" +
+            "Most houseplants prefer moderate temperatures (15−24∘C or 60−75∘F). Avoid placing plants near heat sources, such as radiators or vents, as this can stress them out. Plants that require higher humidity, such as ferns or tropical plants, can benefit from misting or being placed on a humidity tray. Alternatively, you can use a humidifier to increase the humidity in the room.\n\n" +
+
+            "Tip 8: Seasonal Care\n" +
+            "Plants may need extra care depending on the season. During winter, many plants enter a dormant state and require less water and fertilization. During summer, plants may need more frequent watering and additional feeding. Adjust your care routine accordingly to match the plant's seasonal needs.\n"
+        );
+    }//GEN-LAST:event_howButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -411,6 +475,7 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JButton diagnoseButton;
     private javax.swing.JTextArea diagnoseResultTextArea;
     private javax.swing.JButton exitButton;
+    private javax.swing.JButton howButton;
     private javax.swing.JLabel imageLabel;
     private javax.swing.JPanel imagePanel;
     private javax.swing.JPanel jPanel1;
